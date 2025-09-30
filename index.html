@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Button Project</title>
+</head>
+<body>
+    <div class="container">
+        <img src="Images/rainbow_cat.jpg" alt="" />
+        <p class="instruction">
+            This project is inside a small container, you can click to add to the
+            counter or hold down the button to speed up the counter.
+        </p>
+        <h2 id="h22">
+            Select your color <span id="colorOutput"></span>
+        </h2>
+
+        <!-- Slider grid container -->
+        <div class="slider-grid">
+            <div class="slider-wrapper">
+                <label for="rangeRed">red:</label>
+                <input type="range" id="rangeRed" value="0" min="0" max="255" />
+            </div>
+            <div class="slider-wrapper">
+                <label for="rangeGreen">green:</label>
+                <input type="range" id="rangeGreen" value="139" min="0" max="255" />
+            </div>
+            <div class="slider-wrapper blue-slider">
+                <label for="rangeBlue">blue:</label>
+                <input type="range" id="rangeBlue" value="168" min="0" max="255" />
+            </div>
+        </div>
+
+       <button class="large red button" onclick="btnPressed()">BUTTON</button>
+        <p class="hold-hint">Hold me longer than 6 secs please</p>
+
+        <p>
+            <span class="click-label">Clicks:</span> <a id="clicks">0</a>
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+/* --- Base styles --- */
+body {
+    font-size: 125%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+    color: #000000;
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.0);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    min-height: calc(100vh - 150px);
+    border: 1px solid white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > * {
+    margin-bottom: 20px;
+}
+
+.container > *:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 100%;
+}
+
+img {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 10px;
+}
+
+.instruction {
+    font-size: 139%;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 100%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #e74c3c;
+    background: linear-gradient(to bottom, #f06a55, #c0392b);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: none;
+}
+
+#colorOutput {
+    font-weight: bold;
+}
+
+.click-label {
+    font-size: 50px;
+    font-weight: 550;
+}
+
+#clicks {
+    font-size: 50px;
+    font-weight: 550;
+    margin-left: 8px;
+    vertical-align: baseline;
+}
+
+/* ----------- Slider grid layout ----------- */
+.slider-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* two equal columns */
+    grid-template-rows: auto auto;   /* two rows */
+    grid-template-areas:
+        "red green"
+        "blue blue";                   /* blue slider spans both columns */
+    justify-content: center;
+    gap: 15px 30px;
+    width: 60%;
+    margin: 0 auto 20px auto;
+}
+
+.slider-wrapper:nth-child(1) {
+    grid-area: red;
+}
+
+.slider-wrapper:nth-child(2) {
+    grid-area: green;
+}
+
+.slider-wrapper:nth-child(3) {
+    grid-area: blue;
+    justify-self: center;
+    width: 50%;
+}
+
+/* Horizontal label + slider layout */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Label styling */
+.slider-wrapper label {
+    width: 70px;
+    text-align: right;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+/* Slider styling */
+.slider-wrapper input[type="range"] {
+    flex-grow: 1;
+    width: auto;
+    display: block;
+}
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Narrow the container width */
+    .container {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    /* Make slider grid a single column stack */
+    .slider-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "red"
+            "green"
+            "blue";
+        width: 90%;
+        gap: 20px 0;
+    }
+
+    /* Each slider wrapper full width */
+    .slider-wrapper {
+        width: 100%;
+    }
+
+    /* Make labels and sliders stack horizontally */
+    .slider-wrapper {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    /* On very small devices stack label above slider */
+    @media (max-width: 400px) {
+        .slider-wrapper {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 5px;
+        }
+        .slider-wrapper label {
+            width: 100%;
+            text-align: left;
+        }
+        .slider-wrapper input[type="range"] {
+            width: 100%;
+        }
+    }
+}
+.hold-hint {
+    font-size: 16px;
+    font-style: italic;
+    color: #333;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
